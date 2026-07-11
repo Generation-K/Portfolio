@@ -1,0 +1,132 @@
+/* ══════════════════════════════════════
+   i18n — translations
+══════════════════════════════════════ */
+const translations = {
+  de: {
+    nav_about: 'Über mich', nav_exp: 'Erfahrung', nav_proj: 'Projekte', nav_skills: 'Fähigkeiten', nav_pubs: 'Publikationen', nav_certs: 'Zertifizierungen', nav_contact: 'Kontakt',
+    hero_label: 'FULL-STACK ENGINEER',
+    hero_h1a: 'Ich baue', hero_h1b: 'schnelle', hero_h1c: 'optimiert', hero_h1d: 'APIs und Stored Procedures.',
+    hero_desc: 'Spezialisiert auf .NET, C#, SQL und Azure verwandle ich komplexe Produktanforderungen in pixelgenaue, performante Web-Erlebnisse. 2,8+ Jahre in der Produktion.',
+    hero_cta1: 'Meine Arbeit', hero_cta2: 'Kontakt aufnehmen',
+    about_label: '01 — WER ICH BIN', about_h2: 'Leidenschaft fürs Daten und Produkt Management.',
+    about_p1: 'Ich studiere im Masterstudiengang Data Science und bin ein Full-Stack Engineer mit Fokus auf <strong style="color:var(--text)">SQL</strong> und moderne <strong style="color:var(--text)">API-Performance</strong>. Mich interessieren die Details wie <strong style="color:var(--text)">Leistungsoptimierung</strong> sowie eine <strong style="color:var(--text)">robuste und skalierbare Architektur</strong>.',
+    about_p2: 'Wenn ich gerade keine Produkte entwickle, plane ich meistens meine nächste Reise oder koche für Menschen, die mir am Herzen liegen. Ich liebe es, neue Perspektiven zu entdecken, Erfahrungen auszutauschen und Dinge zu erschaffen, die das Leben anderer ein wenig einfacher oder angenehmer machen.',
+    skl_nt1: 'Reisen', skl_nt2: 'Kochen', skl_nt3: 'Kulturen entdecken', skl_nt4: 'Bauen, um die Welt ein bisschen besser zu machen',
+    about_grid_data1: '2,8+', stat1: 'Jahre Erfahrung', stat2: 'Produkte gebaut', stat3: 'Publikationen', stat4: 'Ausflüge',
+    exp_label: '02 — KARRIERE', exp_h2: 'Wo ich gearbeitet habe.',
+    exp1_role: 'Digital Specialist Engineer - I', exp1_co: 'Infosys Limited - Bengaluru, Indien',
+    exp1_b1: 'Entwicklung cloud-nativer, ereignisgesteuerter Lösungen auf <strong style="color:var(--text)">Microsoft Azure</strong> (Function Apps, Service Bus, IoT Event Hub), die täglich mehr als 10.000 Transaktionen verarbeiten, sowie Nutzung von Function Apps zum <strong style="color:var(--text)">Senden und Empfangen von SMS- und E-Mail-Benachrichtigungen über Twilio und SendGrid</strong>, wodurch Skalierbarkeit, Kosteneffizienz und Echtzeitkommunikation verbessert wurden.',
+    exp1_b2: 'Verbesserung der <strong style="color:var(--text)">SQL-Abfrageleistung</strong> um bis zu <strong style="color:var(--text)">50%</strong> und <strong style="color:var(--text)">Reduzierung der API-Antwortzeit</strong> um <strong style="color:var(--text)">30%</strong> durch \"async/await\"-Optimierung im Rahmen der Neugestaltung der Anwendung.',
+    exp1_b3: 'Entwicklung und <strong style="color:var(--text)">Optimierung von Stored Procedures</strong> und SQL-Ansichten zur Bereitstellung der <strong style="color:var(--text)">Dashboard-KPIs</strong> des Portals, wodurch die Effizienz beim Abruf von Daten aus der <strong style="color:var(--text)">Historischen Datenbank</strong> verbessert wurde.',
+    exp1_b4: 'Aktivierung von <strong style="color:var(--text)">CDC (Change Capture Data)</strong> zur Echtzeit-Überwachung von Transaktionen in der gesamten Anwendung.',
+    exp1_b5: 'Entwicklung und Wartung von mehr als drei skalierbaren <strong style="color:var(--text)">ASP.NET Core</strong>-Anwendungen sowie Leitung der <strong style="color:var(--text)">Sprintplanung</strong> und der Scrum-Zeremonien für ein Team von fünf Entwicklern, wodurch die Sprint-Abschlussrate bei mehr als fünf User Stories pro Sprint um <strong style="color:var(--text)">30%</strong> gesteigert wurde.',
+    exp2_role: 'Digital Specialist Engineer', exp2_co: 'Infosys Limited - Bengaluru, Indien',
+    exp2_b1: 'Entwurf, Entwicklung und Bereitstellung <strong style="color:var(--text)">asynchroner RESTful-APIs</strong> mit .NET Core und C#, wodurch eine nahtlose Integration über mehrere Frontend-Systeme hinweg ermöglicht wurde.',
+    exp2_b2: 'Optimierung der Anwendungskonfiguration durch die Abschaffung redundanter <strong style="color:var(--text)">Feature-Toggles</strong> in der <strong style="color:var(--text)">UI (React.js)</strong> und den Backend-Schichten.',
+    exp2_b3: 'Entwicklung umfassender <strong style="color:var(--text)">Unit-Testfälle</strong> für .NET Core-Komponenten wie REST-APIs, Service-Schichten und Utility-Komponenten, wodurch die <strong style="color:var(--text)">Codeabdeckung erhöht</strong> und die Anwendungsstabilität verbessert wurde.',
+    exp2_b4: 'Zusammenarbeit mit dem DevOps-Team bei der Verwaltung von <strong style="color:var(--text)">Azure-Ressourcen und der CI/CD-Bereitstellung</strong> über mehrere Anwendungspipelines hinweg, um reibungslose und zuverlässige Code-Releases sicherzustellen.',
+    exp3_role: 'Data Engineering Intern', exp3_co: 'Bahwan CyberTek - Bengaluru, Indien',
+    exp3_b1: 'Aufbau und Bereitstellung skalierbarer <strong style="color:var(--text)">Datenpipelines zur Verarbeitung von mehr als 100.000</strong> Datensätzen in <strong style="color:var(--text)">Batch- und Streaming-Umgebungen</strong> unter Verwendung von Apache Beam.',
+    exp3_b2: 'Anwendung von NLP und Stimmungsanalyse auf große Textdatensätze zur Extraktion von Kundenfeedback-Signalen, wodurch die Vorverarbeitungszeit um <strong style="color:var(--text)">35%</strong> reduziert und schnellere nachgelagerte Analysen ermöglicht wurden.',
+    exp3_b3: 'Strukturierung und Validierung von Rohdaten zur Verbesserung der Nutzbarkeit und zur Unterstützung einer genauen Interpretation von Social-Media-Inhalten für <strong style="color:var(--text)">Analysemodelle</strong>.',
+    proj_label: '03 — AUSGEWÄHLTE PROJEKTE', proj_h2: 'Was ich gebaut habe.',
+    p1_title: 'Meine Portfolio-Website', p1_desc: 'Erstellung einer responsiven persönlichen Portfolio-Website mit HTML, CSS und JavaScript, um meine Projekte, Fähigkeiten und Erfolge zu präsentieren.',
+    p1_metric: '↑ 68 % schnellere Paint-Zeit vs. vorherigem SVG-Renderer',
+    p2_title: 'Erkennung von Fake News und Stimmungsanalyse', p2_desc: 'Im Rahmen des Projekts wurden der „Count Vectorizer“ und der „Multinomial Naive Bayes Classifier“ zur Erkennung von Fake News eingesetzt. Die Implementierung der Sentimentanalyse dient der Visualisierung des für die Klassifizierung der Nachrichten verwendeten Datensatzes.',
+    p2_metric: '↓ 40 % weniger UI-Inkonsistenzen',
+    p3_title: 'Website des Fachbereichs Informatik', p3_desc: 'Entwicklung und Implementierung eines digitalen Bibliotheksverwaltungssystems unter Verwendung von Python Flask, das umfassende Funktionen für die digitale Verwaltung umfasst und die zukünftige Implementierung neuer Funktionen ermöglicht.',
+    p3_metric: '→ 98 Lighthouse Score, 0,9 s LCP',
+    link_demo: 'Live Demo',
+    sk_label: '04 — EXPERTISE', sk_h2: 'Womit ich arbeite.',
+    sk_g1: 'Core Stack', sk_g2: 'Frontend', sk_g3: 'Backend', sk_g4: 'Cloud: Azure',
+    pb_label: '05 — PUBLIKATIONEN', pb_h2: 'Was ich veröffentlicht habe.', 
+    pub_desc1: 'Veröffentlichte Forschungsarbeiten zur Nutzung von Techniken des maschinellen Lernens und der Verarbeitung natürlicher Sprache (NLP) zur Erkennung von Fake News und zur Analyse der Stimmung in Textdaten.', 
+    pub_desc2: 'Veröffentlichung eines analytischen Artikels, in dem die gesellschaftlichen Auswirkungen der Robotik untersucht und deren Vorteile, Herausforderungen sowie zukünftige Auswirkungen auf verschiedene Branchen beleuchtet werden.',
+    pb_button: 'Anzeigen',
+    cer_label: '06 — ZERTIFIZIERUNGEN', cer_h2: 'Welche Zertifizierungen ich erworben habe.', 
+    cer_title1: 'Microsoft Zertifiziert: Azure Developer Associate', cer_title2: 'Microsoft Zertifiziert: Azure Fundamentals',
+    cer_desc1: 'Vertraut mit Cloud-Anwendungen auf Azure unter Verwendung von PaaS-Diensten, serverlosem Computing und Überwachungsfunktionen.',
+    cer_desc2: 'Erwerb von Grundkenntnissen über die Cloud-Dienste und die Architektur von Microsoft Azure.',
+    cer_button: 'Anzeigen', cer_validity1: 'Gültig bis: 03/2027', cer_validity2: 'Gültig bis: Unbefristet',
+    ct_label: '07 — KONTAKT', ct_h2: 'Lass uns zusammenarbeiten.',
+    ct_desc: 'Ich bin offen für Werkstudent und Produkt-Management-Rollen und interessante Freelance Daten-Projekte. Wenn Sie etwas Wertvolles aufbauen, möchte ich davon hören.',
+    form_name: 'Name', form_email: 'E-Mail', form_subject: 'Betreff', form_msg: 'Nachricht',
+    form_send: 'Nachricht senden',
+    form_ok: 'Nachricht gesendet! Ich melde mich bald.',
+    form_err: 'Etwas ist schiefgelaufen. Bitte versuche es erneut.',
+    form_sending: 'Wird gesendet…',
+    footer: 'Designed & gebaut von Sharan Sivakumar · 2026',
+  },
+  en: {
+    nav_about: 'About', nav_exp: 'Experience', nav_proj: 'Projects', nav_skills: 'Skills',  nav_pubs: 'Publications', nav_certs: 'Certifications', nav_contact: 'Contact',
+    hero_label: 'FULL-STACK ENGINEER',
+    hero_h1a: 'I build', hero_h1b: 'fast', hero_h1c: 'optimised', hero_h1d: 'APIs and Stored Procedures.',
+    hero_desc: 'Specialising in .NET, C#, SQL and Azure, I turn complex product requirements into pixel-perfect, performant web experiences. 2.8+ years shipping production code.',
+    hero_cta1: 'View my work', hero_cta2: 'Get in touch',
+    about_label: '01 — WHO I AM', about_h2: 'Passionate about Data and Product Management.',
+    about_p1: 'I\'m a Master\'s Data Science Student and a full-stack engineer with a deep focus on <strong style="color:var(--text)">SQL</strong> and modern <strong style="color:var(--text)">API performance</strong>. I care about the details such as <strong style="color:var(--text)">Performance Optimization</strong> and <strong style="color:var(--text)">Robust and Scalable Architecture</strong>',
+    about_p2: 'When I\'m not building products, I\'m usually planning my next trip or cooking for people I care about. I enjoy discovering new perspectives, sharing experiences, and creating things that make life a little easier or more enjoyable for others.',
+    skl_nt1: 'Travel', skl_nt2: 'Cooking', skl_nt3: 'Exploring Cultures', skl_nt4: 'Building, to make the world slightly Better',
+    about_grid_data1: '2.8+', stat1: 'Years Experience', stat2: 'Products built', stat3: 'Publications', stat4: 'Trips',
+    exp_label: '02 — CAREER', exp_h2: "Where I've worked.",
+    exp1_role: 'Digital Specialist Engineer - I', exp1_co: 'Infosys Limited - Bengaluru, India',
+    exp1_b1: 'Architected cloud-native, event-driven solutions on <strong style="color:var(--text)">Microsoft Azure</strong> (Function Apps, Service Bus, IoT Event Hub) handling 10,000+ daily transactions and leveraged Function Apps to <strong style="color:var(--text)">send and receive SMS and email notification via Twilio and SendGrid</strong>, thereby improving scalability, cost-efficiency and real-time communication.',
+    exp1_b2: 'Improved <strong style="color:var(--text)">SQL query performance</strong> by up to <strong style="color:var(--text)">50%</strong> and reduced <strong style="color:var(--text)">API response time</strong> by <strong style="color:var(--text)">30%</strong> through async/await optimisation during application redesign.',
+    exp1_b3: 'Designed and <strong style="color:var(--text)">optimised stored procedures</strong> and SQL views to power the portal\'s <strong style="color:var(--text)">Dashboard KPIs</strong>, improving data retrieval efficiency from the <strong style="color:var(--text)">Historical Database</strong>.',
+    exp1_b4: 'Enabled <strong style="color:var(--text)">CDC (Change Capture Data)</strong> for real-time transactions monitoring across the application.',
+    exp1_b5: 'Developed and maintained 3+ scalable <strong style="color:var(--text)">ASP.NET Core</strong> applications and Led <strong style="color:var(--text)">sprint planning</strong> and Scrum ceremonies for a team of 5 developers, increasing sprint completion rate by <strong style="color:var(--text)">30%</strong> across 5+ user stories per sprint.',
+    exp2_role: 'Digital Specialist Engineer', exp2_co: 'Infosys Limited - Bengaluru, India',
+    exp2_b1: 'Designed, developed, and deployed <strong style="color:var(--text)">asynchronous RESTful APIs</strong> using .NET Core and C#, enabling seamless integration across multiple frontend systems.',
+    exp2_b2: 'Optimised application configuration by retiring redundant <strong style="color:var(--text)">feature toggles</strong> across <strong style="color:var(--text)">UI (React.js)</strong> and backend layers.',
+    exp2_b3: 'Developed comprehensive <strong style="color:var(--text)">Unit Test Cases</strong> for .NET Core components such as REST APIs, service layers, and utility components, thereby <strong style="color:var(--text)">increasing code coverage</strong> and improving application stability.',
+    exp2_b4: 'Collaborated with DevOps team to manage <strong style="color:var(--text)">Azure Resources and CI/CD deployment</strong> across multiple applications pipelines ensuring smooth, reliable code releases.',
+    exp3_role: 'Data Engineering Intern', exp3_co: 'Bahwan CyberTek - Bengaluru, India',
+    exp3_b1: 'Built and deployed scalable <strong style="color:var(--text)">data pipelines processing 100,000+</strong> records across <strong style="color:var(--text)">batch processing and streaming environments</strong> using Apache Beam.',
+    exp3_b2: 'Applied NLP and Sentiment Analysis on large textual datasets to extract customer feedback signals, reducing preprocessing time by <strong style="color:var(--text)">35%</strong> and enabling faster downstream analytics.',
+    exp3_b3: 'Structured and validated raw data to improve usability and support accurate interpretation of social media content for <strong style="color:var(--text)">analytical models</strong>.',
+    proj_label: '03 — SELECTED WORK', proj_h2: "Things I've built.",
+    p1_title: 'My Portfolio Website', p1_desc: 'Built a responsive personal portfolio website using HTML, CSS, and JavaScript to showcase my projects, skills, and achievements.',
+    p1_metric: '↑ 68% faster paint time vs previous SVG renderer',
+    p2_title: 'Fake News Detection and Sentiment Analysis', p2_desc: 'The project utilized Count Vectorizer and Multinomial Naive Bayes Classifier to detect fake news. The implementation of Sentiment Analysis helps visualize the dataset used for classification of news.',
+    p2_metric: '↓ 40% reduction in cross-team UI inconsistencies',
+    p3_title: 'Website for the CSE Department', p3_desc: 'Designed and deployed a digital library management system using Python Flask, incorporating full-stack digital management features and enabling future scope implementations for new features.',
+    p3_metric: '→ 98 Lighthouse score, 0.9s LCP',
+    link_demo: 'Live demo',
+    sk_label: '04 — EXPERTISE', sk_h2: 'Where I spend my time.',
+    sk_g1: 'Core Stack', sk_g2: 'Frontend', sk_g3: 'Backend', sk_g4: 'Cloud: Azure',
+    pb_label: '05 — PUBLICATIONS', pb_h2: 'What I have published.', 
+    pub_desc1: 'Published research on leveraging machine learning and natural language processing (NLP) techniques to detect fake news and analyze sentiment in textual data.', 
+    pub_desc2: 'Published an analytical paper exploring the societal impact of robotics, examining its benefits, challenges, and future implications across industries.',
+    pb_button: 'View',
+    cer_label: '06 — CERTIFICATIONS', cer_h2: 'What I have been certified with.',
+    cer_title1: 'Microsoft Certified: Azure Developer Associate', cer_title2: 'Microsoft Certified: Azure Fundamentals',
+    cer_desc1: 'Familiarised with cloud applications on Azure using PaaS services, serverless computing and monitoring.',
+    cer_desc2: 'Gained foundational knowledge of Microsoft Azure cloud services and architecture.',
+    cer_button: 'View', cer_validity1: 'Valid till: 03/2027', cer_validity2: 'Valid till: Unlimited',
+    ct_label: '07 — CONTACT', ct_h2: "Let's build something together.",
+    ct_desc: "I'm open to Working Student and Product Management roles and interesting Data Projects. If you've got something worth building, I would like to hear about it.",
+    form_name: 'Name', form_email: 'Email', form_subject: 'Subject', form_msg: 'Message',
+    form_send: 'Send message',
+    form_ok: 'Message sent! I\'ll be in touch soon.',
+    form_err: 'Something went wrong. Please try again.',
+    form_sending: 'Sending…',
+    footer: 'Designed & built by Sharan Sivakumar · 2026',
+  }
+};
+
+let currentLang = 'de';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  ['de','en'].forEach(l => {
+    document.querySelectorAll(`#lang-${l}, #lang-${l}-m`).forEach(btn => {
+      btn.classList.toggle('active', l === lang);
+    });
+  });
+}

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="auto">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sharan Sivakumar - Full Stack Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          display: ['Space Grotesk', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['JetBrains Mono', 'monospace'],
+        },
+        colors: {
+          indigo: { DEFAULT: '#5B5BD6', light: '#7C7CEA', dim: '#4A4ABF' },
+          ink:       { DEFAULT: '#0F0F0D', 2: '#141412', 3: '#1C1C19' },
+          parchment: { DEFAULT: '#E8E6DF', 2: '#F2F0EA', 3: '#FAFAF7' },
+          muted:     { DEFAULT: '#6B6B5E', light: '#9B9B8E' },
+        }
+      }
+    }
+  }
+</script>
+<!-- Theme applied before paint to avoid flash -->
+<script>
+  (function () {
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved ? saved === 'dark' : prefersDark) document.documentElement.classList.add('dark');
+  })();
+</script>
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════ DESKTOP NAV ═══════════════════════ -->
+<nav id="main-nav" class="hidden md:block">
+  <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+    <a href="#hero" class="nav-logo"><span>Sharan</span><span>.</span>Sivakumar</a>
+
+    <!-- section links with icons -->
+    <div class="flex items-center gap-1">
+      <a href="#about" class="nav-link" data-section="about">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <span class="label" data-i18n="nav_about">Über mich</span>
+      </a>
+      <a href="#experience" class="nav-link" data-section="experience">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        <span class="label" data-i18n="nav_exp">Erfahrung</span>
+      </a>
+      <a href="#projects" class="nav-link" data-section="projects">
+        <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <span class="label" data-i18n="nav_proj">Projekte</span>
+      </a>
+      <a href="#skills" class="nav-link" data-section="skills">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <span class="label" data-i18n="nav_skills">Fähigkeiten</span>
+      </a>
+      <a href="#publications" class="nav-link" data-section="publications">
+        <svg viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 0 1 2-2h14v18H6a2 2 0 0 1-2-2z"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
+        <span class="label" data-i18n="nav_pubs">Publikationen</span>
+      </a>
+      <a href="#certifications" class="nav-link" data-section="certifications">
+        <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 1 0 10a5 5 0 0 1 0-10z"/><path d="M9 12l-2 9 5-3 5 3-2-9"/><path d="M10 7h4"/></svg>
+        <span class="label" data-i18n="nav_certs">Zertifizierungen</span>
+      </a>
+      <a href="#contact" class="nav-link" data-section="contact">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span class="label" data-i18n="nav_contact">Kontakt</span>
+      </a>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <!-- language toggle — flag emojis -->
+      <div class="toggle-pill">
+        <button id="lang-de" class="active" onclick="setLang('de')">
+          <span class="flag-icon">DE</span>
+        </button>
+        <button id="lang-en" onclick="setLang('en')">
+          <span class="flag-icon">EN</span>
+        </button>
+      </div>
+      <!-- theme toggle -->
+      <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="display:none"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ MOBILE TOP BAR ═══════════════════════ -->
+<div class="md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-3 border-b" style="background:var(--nav-bg);backdrop-filter:blur(20px);border-color:var(--border);">
+  <a href="#hero" class="nav-logo text-sm">Sharan<span>.</span>Sivakumar</a>
+  <div class="flex items-center gap-2">
+    <div class="toggle-pill">
+      <button id="lang-de-m" class="active" onclick="setLang('de')">
+        <span class="flag-icon"> DE </span>
+      </button>
+      <button id="lang-en-m" onclick="setLang('en')">
+        <span class="flag-icon"> EN </span>
+      </button>
+    </div>
+    <button class="theme-btn" onclick="toggleTheme()">
+      <svg id="icon-sun-m" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="display:none"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      <svg id="icon-moon-m" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════ MOBILE TOP NAV (links — now at top below topbar) ═══════════════════════ -->
+<nav id="mobile-nav">
+  <div class="flex justify-around items-center px-2">
+    <a href="#about" class="nav-link" data-section="about">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      <span class="label" data-i18n="nav_about">Über mich</span>
+    </a>
+    <a href="#experience" class="nav-link" data-section="experience">
+      <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+      <span class="label" data-i18n="nav_exp">Erfahrung</span>
+    </a>
+    <a href="#projects" class="nav-link" data-section="projects">
+      <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      <span class="label" data-i18n="nav_proj">Projekte</span>
+    </a>
+    <a href="#skills" class="nav-link" data-section="skills">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <span class="label" data-i18n="nav_skills">Fähigkeiten</span>
+    </a>
+    <a href="#publications" class="nav-link" data-section="publications">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <span class="label" data-i18n="nav_pubs">Publikationen</span>
+    </a>
+    <a href="#certifications" class="nav-link" data-section="certifications">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <span class="label" data-i18n="nav_certs">Zertifizierungen</span>
+    </a>
+    <a href="#contact" class="nav-link" data-section="contact">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <span class="label" data-i18n="nav_contact">Kontakt</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section id="hero" class="min-h-screen flex items-center pt-20 pb-12">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+      <div>
+        <div class="section-label mb-4" data-i18n="hero_label">FULL-STACK ENGINEER</div>
+        <h1 class="font-display font-bold leading-tight tracking-tight mb-5" style="font-size:clamp(2.5rem,5vw,4rem);color:var(--text);">
+          <span data-i18n="hero_h1a">Ich baue</span><br/>
+          <span style="color:var(--accent)" data-i18n="hero_h1b">schnelle</span>,
+          <span style="color:var(--accent2)" data-i18n="hero_h1c">optimiert</span><br/>
+          <span data-i18n="hero_h1d">APIs und Stored Procedures.</span>
+        </h1>
+        <p class="text-base sm:text-lg mb-8 max-w-lg leading-relaxed" style="color:var(--text2)" data-i18n="hero_desc">
+          Spezialisiert auf .NET, C#, SQL &amp; Azure verwandle ich komplexe Produktanforderungen in pixelgenaue, performante Web-Erlebnisse. 2,8+ Jahre in der Produktion.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#projects" class="btn-primary" data-i18n="hero_cta1">Meine Arbeit</a>
+          <a href="#contact" class="btn-ghost" data-i18n="hero_cta2">Kontakt aufnehmen</a>
+        </div>
+      </div>
+
+      <div class="terminal fade-in">
+        <div class="terminal-bar">
+          <span class="dot" style="background:#FF5F57"></span>
+          <span class="dot" style="background:#FEBC2E"></span>
+          <span class="dot" style="background:#28C840"></span>
+          <span class="terminal-title">userPortfolio.sql</span>
+        </div>
+        <div class="terminal-body text-sm" id="terminal-output"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ ABOUT ═══════════════════════ -->
+<section id="about" style="background:var(--bg2);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="section-label" data-i18n="about_label">01 — WER ICH BIN</div>
+    <h2 data-i18n="about_h2">Leidenschaft fürs Daten und Produkt Management.</h2>
+    <br>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16 items-start">
+      <div class="md:col-span-2 fade-in">
+        <p class="mb-4 leading-relaxed" style="color:var(--text2)">
+          <span data-i18n="about_p1">Ich studiere im Masterstudiengang Data Science und bin ein Full-Stack Engineer mit Fokus auf <strong style="color:var(--text)">SQL</strong> und moderne <strong style="color:var(--text)">API-Performance</strong>. Mich interessieren die Details wie <strong style="color:var(--text)">Leistungsoptimierung</strong> sowie eine <strong style="color:var(--text)">robuste und skalierbare Architektur</strong>.</span>
+        </p>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="tag">.NET</span><span class="tag">C#</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">RESTful API</span><span class="tag">Azure: Function Apps</span><span class="tag">Azure: Event Hub</span><span class="tag">Asynchronous Programming</span><span class="tag">Agile / Scrum</span>
+        </div><br>
+        <p class="mb-4 leading-relaxed" style="color:var(--text2)">
+          <span data-i18n="about_p2">Wenn ich gerade keine Produkte entwickle, plane ich meistens meine nächste Reise oder koche für Menschen, die mir am Herzen liegen. Ich liebe es, neue Perspektiven zu entdecken, Erfahrungen auszutauschen und Dinge zu erschaffen, die das Leben anderer ein wenig einfacher oder angenehmer machen.</span>
+        </p>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="tag" data-i18n="skl_nt1">Reisen</span><span class="tag" data-i18n="skl_nt2">Kochen</span><span class="tag" data-i18n="skl_nt3">Kulturen entdecken</span><span class="tag" data-i18n="skl_nt4">Bauen, um die Welt ein bisschen besser zu machen</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 fade-in">
+        <div class="stat-card"><span class="stat-num"><span data-i18n="about_grid_data1">2,8+</span></span><span class="stat-lbl" data-i18n="stat1">Jahre Erfahrung</span></div>
+        <div class="stat-card"><span class="stat-num">6</span><span class="stat-lbl" data-i18n="stat2">Produkte gebaut</span></div>
+        <div class="stat-card"><span class="stat-num">2</span><span class="stat-lbl" data-i18n="stat3">Publikationen</span></div>
+        <div class="stat-card"><span class="stat-num">17+</span><span class="stat-lbl" data-i18n="stat4">Ausflüge</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ EXPERIENCE ═══════════════════════ -->
+<section id="experience">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="section-label" data-i18n="exp_label">02 — KARRIERE</div>
+    <h2 data-i18n="exp_h2">Wo ich gearbeitet habe.</h2>
+    <br>
+    <div class="max-w-2xl timeline">
+      <div class="relative pl-6 mb-10 fade-in">
+        <span class="timeline-dot"></span>
+        <p class="font-mono text-xs mb-1" style="color:var(--accent)">10/2024 - 03/2025</p>
+        <p class="font-display font-semibold text-lg mb-1" style="color:var(--text)" data-i18n="exp1_role">Digital Specialist Engineer - I</p>
+        <p class="text-sm mb-3" style="color:var(--accent2)" data-i18n="exp1_co">Infosys Limited - Bengaluru, Indien</p>
+        <ul class="list-disc list-inside text-sm space-y-1" style="color:var(--muted)">
+          <li data-i18n="exp1_b1">Entwicklung cloud-nativer, ereignisgesteuerter Lösungen auf <strong style="color:var(--text)">Microsoft Azure</strong> (Function Apps, Service Bus, IoT Event Hub), die täglich mehr als 10.000 Transaktionen verarbeiten, sowie Nutzung von Function Apps zum <strong style="color:var(--text)">Senden und Empfangen von SMS- und E-Mail-Benachrichtigungen über Twilio und SendGrid</strong>, wodurch Skalierbarkeit, Kosteneffizienz und Echtzeitkommunikation verbessert wurden.</li>
+          <li data-i18n="exp1_b2">Verbesserung der <strong style="color:var(--text)">SQL-Abfrageleistung</strong> um bis zu <strong style="color:var(--text)">50%</strong> und Reduzierung der <strong style="color:var(--text)">API-Antwortzeit</strong> um <strong style="color:var(--text)">30%</strong> durch "async/await"-Optimierung im Rahmen der Neugestaltung der Anwendung.</li>
+          <li data-i18n="exp1_b3">Entwicklung und <strong style="color:var(--text)">Optimierung von Stored Procedures</strong> und SQL-Ansichten zur Bereitstellung der <strong style="color:var(--text)">Dashboard-KPIs</strong> des Portals, wodurch die Effizienz beim Abruf von Daten aus der <strong style="color:var(--text)">Historischen Datenbank</strong> verbessert wurde.</li>
+          <li data-i18n="exp1_b4">Aktivierung von <strong style="color:var(--text)">CDC (Change Capture Data)</strong> zur Echtzeit-Überwachung von Transaktionen in der gesamten Anwendung.</li>
+          <li data-i18n="exp1_b5">Entwicklung und Wartung von mehr als drei skalierbaren <strong style="color:var(--text)">ASP.NET Core</strong>-Anwendungen sowie Leitung der <strong style="color:var(--text)">Sprintplanung</strong> und der Scrum-Zeremonien für ein Team von fünf Entwicklern, wodurch die Sprint-Abschlussrate bei mehr als fünf User Stories pro Sprint um <strong style="color:var(--text)">30%</strong> gesteigert wurde.</li>
+        </ul>
+      </div>
+
+      <div class="relative pl-6 mb-10 fade-in">
+        <span class="timeline-dot"></span>
+        <p class="font-mono text-xs mb-1" style="color:var(--accent)">08/2022 - 09/2024</p>
+        <p class="font-display font-semibold text-lg mb-1" style="color:var(--text)" data-i18n="exp2_role">Digital Specialist Engineer</p>
+        <p class="text-sm mb-3" style="color:var(--accent2)" data-i18n="exp2_co">Infosys Limited - Bengaluru, Indien</p>
+        <ul class="list-disc list-inside text-sm space-y-1" style="color:var(--muted)">
+          <li data-i18n="exp2_b1">Entwurf, Entwicklung und Bereitstellung <strong style="color:var(--text)">asynchroner RESTful-APIs</strong> mit .NET Core und C#, wodurch eine nahtlose Integration über mehrere Frontend-Systeme hinweg ermöglicht wurde.</li>
+          <li data-i18n="exp2_b2">Optimierung der Anwendungskonfiguration durch die Abschaffung redundanter <strong style="color:var(--text)">Feature-Toggles</strong> in der <strong style="color:var(--text)">UI (React.js)</strong> und den Backend-Schichten.</li>
+          <li data-i18n="exp2_b3">Entwicklung umfassender <strong style="color:var(--text)">Unit-Testfälle</strong> für .NET Core-Komponenten wie REST-APIs, Service-Schichten und Utility-Komponenten, wodurch die <strong style="color:var(--text)">Codeabdeckung erhöht</strong> und die Anwendungsstabilität verbessert wurde.</li>
+          <li data-i18n="exp2_b4">Zusammenarbeit mit dem DevOps-Team bei der Verwaltung von <strong style="color:var(--text)">Azure-Ressourcen und der CI/CD-Bereitstellung</strong> über mehrere Anwendungspipelines hinweg, um reibungslose und zuverlässige Code-Releases sicherzustellen.</li>
+        </ul>
+      </div>
+
+      <div class="relative pl-6 fade-in">
+        <span class="timeline-dot"></span>
+        <p class="font-mono text-xs mb-1" style="color:var(--accent)">06/2021 - 05/2022</p>
+        <p class="font-display font-semibold text-lg mb-1" style="color:var(--text)" data-i18n="exp3_role">Data Engineering Intern</p>
+        <p class="text-sm mb-3" style="color:var(--accent2)" data-i18n="exp3_co">Bahwan CyberTek - Bengaluru, Indien</p>
+        <ul class="list-disc list-inside text-sm space-y-1" style="color:var(--muted)">
+          <li data-i18n="exp3_b1">Aufbau und Bereitstellung skalierbarer <strong style="color:var(--text)">Datenpipelines zur Verarbeitung von mehr als 100.000</strong> Datensätzen in <strong style="color:var(--text)">Batch- und Streaming-Umgebungen</strong> unter Verwendung von Apache Beam.</li>
+          <li data-i18n="exp3_b2">Anwendung von NLP und Stimmungsanalyse auf große Textdatensätze zur Extraktion von Kundenfeedback-Signalen, wodurch die Vorverarbeitungszeit um <strong style="color:var(--text)">35%</strong> reduziert und schnellere nachgelagerte Analysen ermöglicht wurden.</li>
+          <li data-i18n="exp3_b3">Strukturierung und Validierung von Rohdaten zur Verbesserung der Nutzbarkeit und zur Unterstützung einer genauen Interpretation von Social-Media-Inhalten für <strong style="color:var(--text)">Analysemodelle</strong>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PROJECTS ═══════════════════════ -->
+<section id="projects" style="background:var(--bg2);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="section-label" data-i18n="proj_label">03 — AUSGEWÄHLTE PROJEKTE</div>
+    <h2 data-i18n="proj_h2">Was ich gebaut habe.</h2>
+    <br>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+      <div class="card p-6 md:col-span-2 fade-in">
+        <p class="font-mono text-xs mb-3" style="color:var(--muted)">01</p>
+        <p class="font-display font-semibold text-lg mb-2" style="color:var(--text)" data-i18n="p1_title">Meine Portfolio-Website</p>
+        <p class="text-sm mb-3 leading-relaxed" style="color:var(--muted)" data-i18n="p1_desc">Erstellung einer responsiven persönlichen Portfolio-Website mit HTML, CSS und JavaScript, um meine Projekte, Fähigkeiten und Erfolge zu präsentieren.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="stack-tag">Javascript</span><span class="stack-tag">HTML</span><span class="stack-tag">CSS</span>
+        </div>
+        <div class="flex gap-3">
+          <a href="https://github.com/Generation-K/Portfolio" target="_blank" rel="noopener noreferrer" class="btn-ghost text-xs py-2 px-3">GitHub</a>
+        </div>
+      </div>
+
+      <div class="card p-6 fade-in">
+        <p class="font-mono text-xs mb-3" style="color:var(--muted)">02</p>
+        <p class="font-display font-semibold text-lg mb-2" style="color:var(--text)" data-i18n="p2_title">Erkennung von Fake News und Stimmungsanalyse</p>
+        <p class="text-sm mb-3 leading-relaxed" style="color:var(--muted)" data-i18n="p2_desc">Im Rahmen des Projekts wurden der „Count Vectorizer“ und der „Multinomial Naive Bayes Classifier“ zur Erkennung von Fake News eingesetzt. Die Implementierung der Sentimentanalyse dient der Visualisierung des für die Klassifizierung der Nachrichten verwendeten Datensatzes.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="stack-tag">Machine Learning</span><span class="stack-tag">NLP</span><span class="stack-tag">Python</span><span class="stack-tag">Data Processing</span>
+        </div>
+        <div class="flex gap-3">
+          <a href="https://github.com/Generation-K/Final_Year_Project" target="_blank" rel="noopener noreferrer" class="btn-ghost text-xs py-2 px-3">GitHub</a>
+        </div>
+      </div>
+
+      <div class="card p-6 fade-in">
+        <p class="font-mono text-xs mb-3" style="color:var(--muted)">03</p>
+        <p class="font-display font-semibold text-lg mb-2" style="color:var(--text)" data-i18n="p3_title">Website des Fachbereichs Informatik</p>
+        <p class="text-sm mb-3 leading-relaxed" style="color:var(--muted)" data-i18n="p3_desc">Entwicklung und Implementierung eines digitalen Bibliotheksverwaltungssystems unter Verwendung von Python Flask, das umfassende Funktionen für die digitale Verwaltung umfasst und die zukünftige Implementierung neuer Funktionen ermöglicht.</p><br>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="stack-tag">Web Development</span><span class="stack-tag">Python: Flask</span><span class="stack-tag">HTML</span><span class="stack-tag">CSS</span>
+        </div>
+        <div class="flex gap-3">
+          <a href="https://github.com/Generation-K/Dept-library" target="_blank" rel="noopener noreferrer" class="btn-ghost text-xs py-2 px-3">GitHub</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SKILLS ═══════════════════════ -->
+<section id="skills">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="section-label" data-i18n="sk_label">04 — EXPERTISE</div>
+    <h2 data-i18n="sk_h2">Womit ich arbeite.</h2>
+    <br>
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+
+      <div class="card p-5 fade-in">
+        <p class="font-display font-semibold text-sm mb-4" style="color:var(--text)">
+          <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:6px;vertical-align:middle;"></span>
+          <span data-i18n="sk_g1">Core Stack</span>
+        </p>
+        <div class="space-y-3">
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">.NET Core</span><span class="font-mono text-xs" style="color:var(--muted)">95%</span></div><div class="bar-track"><div class="bar-fill" data-width="95"></div></div></div>
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">SQL</span><span class="font-mono text-xs" style="color:var(--muted)">92%</span></div><div class="bar-track"><div class="bar-fill" data-width="92"></div></div></div>
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">Microsoft Azure</span><span class="font-mono text-xs" style="color:var(--muted)">96%</span></div><div class="bar-track"><div class="bar-fill" data-width="96"></div></div></div>
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">Docker/Kubernetes</span><span class="font-mono text-xs" style="color:var(--muted)">98%</span></div><div class="bar-track"><div class="bar-fill" data-width="98"></div></div></div>
+        </div>
+      </div>
+
+      <div class="card p-5 fade-in">
+        <p class="font-display font-semibold text-sm mb-4" style="color:var(--text)">
+          <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:6px;vertical-align:middle;"></span>
+          <span data-i18n="sk_g2">Frontend</span>
+        </p>
+        <div class="space-y-3">
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">React.js</span><span class="font-mono text-xs" style="color:var(--muted)">93%</span></div><div class="bar-track"><div class="bar-fill" data-width="93"></div></div></div>
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">Angular</span><span class="font-mono text-xs" style="color:var(--muted)">88%</span></div><div class="bar-track"><div class="bar-fill" data-width="88"></div></div></div>
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">HTML</span><span class="font-mono text-xs" style="color:var(--muted)">91%</span></div><div class="bar-track"><div class="bar-fill" data-width="91"></div></div></div>
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">Tailwind CSS</span><span class="font-mono text-xs" style="color:var(--muted)">86%</span></div><div class="bar-track"><div class="bar-fill" data-width="86"></div></div></div>
+        </div>
+      </div>
+
+      <div class="card p-5 fade-in">
+        <p class="font-display font-semibold text-sm mb-4" style="color:var(--text)">
+          <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:6px;vertical-align:middle;"></span>
+          <span data-i18n="sk_g3">Backend</span>
+        </p>
+        <div class="space-y-3">
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">MS SQL Server</span><span class="font-mono text-xs" style="color:var(--muted)">90%</span></div><div class="bar-track"><div class="bar-fill" data-width="90"></div></div></div>
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">CosmosDB</span><span class="font-mono text-xs" style="color:var(--muted)">82%</span></div><div class="bar-track"><div class="bar-fill" data-width="82"></div></div></div>
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">REST APIs</span><span class="font-mono text-xs" style="color:var(--muted)">87%</span></div><div class="bar-track"><div class="bar-fill" data-width="87"></div></div></div>
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">JSON</span><span class="font-mono text-xs" style="color:var(--muted)">85%</span></div><div class="bar-track"><div class="bar-fill" data-width="85"></div></div></div>
+        </div>
+      </div>
+
+      <div class="card p-5 fade-in">
+        <p class="font-display font-semibold text-sm mb-4" style="color:var(--text)">
+          <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:6px;vertical-align:middle;"></span>
+          <span data-i18n="sk_g4">Cloud: Azure</span>
+        </p>
+        <div class="space-y-3">
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">Function Apps</span><span class="font-mono text-xs" style="color:var(--muted)">94%</span></div><div class="bar-track"><div class="bar-fill" data-width="94"></div></div></div>
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">IoT Event Hub</span><span class="font-mono text-xs" style="color:var(--muted)">85%</span></div><div class="bar-track"><div class="bar-fill" data-width="85"></div></div></div>
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">Service Bus</span><span class="font-mono text-xs" style="color:var(--muted)">88%</span></div><div class="bar-track"><div class="bar-fill" data-width="88"></div></div></div>
+          <div><div class="flex justify-between mb-1"><span class="font-mono text-xs" style="color:var(--text2)">CosmosDB</span><span class="font-mono text-xs" style="color:var(--muted)">90%</span></div><div class="bar-track"><div class="bar-fill" data-width="90"></div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PUBLICATIONS ═══════════════════════ -->
+<section id="publications" style="background:var(--bg2)">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="section-label" data-i18n="pb_label">05 — PUBLIKATIONEN</div>
+    <h2 data-i18n="pb_h2">Was ich veröffentlicht habe.</h2>
+    <br>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+      <div class="card p-6 fade-in">
+        <p class="font-mono text-xs mb-3" style="color:var(--muted)">01</p>
+        <p class="font-display font-semibold text-lg mb-2" style="color:var(--text)">Fake News Detection and Sentiment Analysis</p>
+        <p class="text-sm mb-3 leading-relaxed" style="color:var(--muted)" data-i18n="pub_desc1">Veröffentlichte Forschungsarbeiten zur Nutzung von Techniken des maschinellen Lernens und der Verarbeitung natürlicher Sprache (NLP) zur Erkennung von Fake News und zur Analyse der Stimmung in Textdaten.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="stack-tag">Research</span><span class="stack-tag">Multinomial Naive Bayes</span>
+        </div>
+        <div class="flex gap-3">
+          <a href="https://ijsrset.com/IJSRSET22991514" target="_blank" rel="noopener noreferrer" class="btn-ghost text-xs py-2 px-3" data-i18n="pb_button">Anzeigen</a>
+        </div>
+      </div>
+
+      <div class="card p-6 fade-in">
+        <p class="font-mono text-xs mb-3" style="color:var(--muted)">02</p>
+        <p class="font-display font-semibold text-lg mb-2" style="color:var(--text)">Robotics: A Future Race [Boon/Bane]</p>
+        <p class="text-sm mb-3 leading-relaxed" style="color:var(--muted)" data-i18n="pub_desc2">Veröffentlichung eines analytischen Artikels, in dem die gesellschaftlichen Auswirkungen der Robotik untersucht und deren Vorteile, Herausforderungen sowie zukünftige Auswirkungen auf verschiedene Branchen beleuchtet werden.</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="stack-tag">Research</span><span class="stack-tag">New Tech</span>
+        </div>
+        <div class="flex gap-3">
+          <a href="https://drive.google.com/file/d/1XLeaiPhFCAVEpgr91t5yyP-8Zn1jTHVT/view" target="_blank" rel="noopener noreferrer" class="btn-ghost text-xs py-2 px-3" data-i18n="pb_button">Anzeigen</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CERTIFICATIONS ═══════════════════════ -->
+<section id="certifications">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="section-label" data-i18n="cer_label">06 — ZERTIFIZIERUNGEN</div>
+    <h2 data-i18n="cer_h2">Welche Zertifizierungen ich erworben habe.</h2>
+    <br>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+      <div class="card p-6 fade-in">
+        <p class="font-mono text-xs mb-3" style="color:var(--muted)">01</p>
+        <p class="font-display font-semibold text-lg mb-2" style="color:var(--text)" data-i18n="cer_title2">Microsoft Zertifiziert: Azure Developer Associate</p>
+        <p class="text-sm mb-3 leading-relaxed" style="color:var(--muted)" data-i18n="cer_desc1">Vertraut mit Cloud-Anwendungen auf Azure unter Verwendung von PaaS-Diensten, serverlosem Computing und Überwachungsfunktionen.</p>
+        <div class="metric mb-4" data-i18n="cer_validity1">Gültig bis: 03/2027</div>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="stack-tag">AZ - 204</span>
+        </div>
+        <div class="flex gap-3">
+          <a href="https://drive.google.com/file/d/1Zo9O384ZOKvgvA_c85J2XSc0B4wIwyeI/view" target="_blank" rel="noopener noreferrer" class="btn-ghost text-xs py-2 px-3" data-i18n="cer_button">Anzeigen</a>
+        </div>
+      </div>
+
+      <div class="card p-6 fade-in">
+        <p class="font-mono text-xs mb-3" style="color:var(--muted)">02</p>
+        <p class="font-display font-semibold text-lg mb-2" style="color:var(--text)" data-i18n="cer_title2">Microsoft Zertifiziert: Azure Fundamentals</p>
+        <p class="text-sm mb-3 leading-relaxed" style="color:var(--muted)" data-i18n="cer_desc2">Erwerb von Grundkenntnissen über die Cloud-Dienste und die Architektur von Microsoft Azure.</p>
+        <div class="metric mb-4" data-i18n="cer_validity2">Gültig bis: Unbefristet</div>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="stack-tag">AZ - 900</span>
+        </div>
+        <div class="flex gap-3">
+          <a href="https://drive.google.com/file/d/1z_1QgMr28Kobq6GdmVKPH9AZlqQLWFCK/view" target="_blank" rel="noopener noreferrer" class="btn-ghost text-xs py-2 px-3"data-i18n="cer_button">Anzeigen</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CONTACT ═══════════════════════ -->
+<section id="contact" style="background:var(--bg2);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="section-label" data-i18n="ct_label">07 — KONTAKT</div>
+    <h2 data-i18n="ct_h2">Lass uns zusammenarbeiten.</h2>
+    <br>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+      <div class="fade-in">
+        <p class="text-base leading-relaxed mb-6" style="color:var(--text2)" data-i18n="ct_desc">
+          Ich bin offen für Werkstudent und Produkt-Management-Rollen und interessante Freelance Daten-Projekte. Wenn Sie etwas Wertvolles aufbauen, möchte ich davon hören.
+        </p>
+        <div class="space-y-3">
+          <a href="mailto:sharansivakumar08@gmail.com" class="flex items-center gap-3 group" style="color:var(--text2)">
+            <span style="width:36px;height:36px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
+            <span class="font-mono text-sm" style="transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color=''">E-Mail</span>
+          </a>
+          <a href="https://github.com/Generation-K" target="_blank" rel="noopener" class="flex items-center gap-3 group" style="color:var(--text2)">
+            <span style="width:36px;height:36px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </span>
+            <span class="font-mono text-sm" style="transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color=''">GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/sharan-s-1b0048165/" target="_blank" rel="noopener" class="flex items-center gap-3 group" style="color:var(--text2)">
+            <span style="width:36px;height:36px;border-radius:8px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </span>
+            <span class="font-mono text-sm" style="transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color=''">LinkedIn</span>
+          </a>
+        </div>
+      </div>
+
+      <form id="contact-form" class="space-y-4 fade-in" novalidate>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="form-label" data-i18n="form_name">Name</label>
+            <input type="text" id="name" name="name" required class="form-input" placeholder="Name" />
+          </div>
+          <div>
+            <label class="form-label" data-i18n="form_email">E-Mail</label>
+            <input type="email" id="email" name="email" required class="form-input" placeholder="email@example.de" />
+          </div>
+        </div>
+        <div>
+          <label class="form-label" data-i18n="form_subject">Betreff</label>
+          <input type="text" id="subject" name="subject" class="form-input" placeholder="Betreff / Subject" />
+        </div>
+        <div>
+          <label class="form-label" data-i18n="form_msg">Nachricht</label>
+          <textarea name="message" id="message" rows="5" required class="form-input" placeholder="Erzähl mir / Explain …"></textarea>
+        </div>
+        <div id="form-status" class="form-status"></div>
+        <button type="submit" id="form-submit" class="btn-primary w-full sm:w-auto flex items-center gap-2 justify-center">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          <span data-i18n="form_send">Nachricht senden</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="border-t py-6 text-center" style="background:var(--bg);border-color:var(--border);">
+  <p class="font-mono text-xs" style="color:var(--muted)">
+    <span data-i18n="footer">Designed &amp; gebaut von Sharan Sivakumar · 2026</span>
+  </p>
+</footer>
+
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="js/i18n.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/terminal.js"></script>
+<script src="js/animations.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>
