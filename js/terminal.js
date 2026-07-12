@@ -5,7 +5,7 @@ const lines = [
   { t: 'SELECT *', c: 't-w' },
   { t: 'FROM Developer d', c: '' },
   { t: 'WHERE d.name = \'Sharan\'', c: ''},
-  { t: '// The engineer behind this portfolio', c: 't-cm' },
+  { t: '-- The engineer behind this portfolio', c: 't-cm' },
   { t: '+----+--------+------------------+----------+----------+', c: 't-g' },
   { t: "| id | name   | role             | status   | location |", c: 't-g' },
   { t: "+----+--------+------------------+----------+----------+",      c: 't-g' },
